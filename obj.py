@@ -1,3 +1,4 @@
+import sys
 class cube:
 
     def __init__(self, cube=[[0]]*100):
@@ -12,10 +13,14 @@ class cube:
             for item in line:
                 string += str(item)
                 string += " "
+            string.strip()
             string += "\n"
-        return string
+        return string.strip()
+
+
 
     def get_cube(self):
         return self.cube
 
-
+    def __len__(self):
+        return sys.getsizeof(self)
