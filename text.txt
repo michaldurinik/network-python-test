@@ -1,0 +1,3 @@
+https://realpython.com/python-sockets/
+https://stackoverflow.com/questions/17667903/python-socket-receive-large-amount-of-data/41301507#41301507
+
