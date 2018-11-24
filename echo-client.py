@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import socket
 from time import sleep
-from obj import cube
+from obj import cube #our test object
 import pickle
 import struct
 import sys
@@ -33,33 +33,16 @@ def recvall(sock, n):
         data += packet
     return data
 
-c = cube()
+c = cube() #our 100x100 matrix test data
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
 
+    #after it connects, send data to server, print size in bytes
+    #and print what it received also, size in bytes
     packet = pickle.dumps(c)
     print(sys.getsizeof(packet))
     send_msg(s, packet)
     data = recv_msg(s)
     print(sys.getsizeof(data))
-    #print(pickle.loads(data))
-    #i = "0"
-    #i = i.encode()
-    #i = pickle.dumps(c)
-    #s.sendall(i)
-    #fragments = []
-    #while True:
-    #    chunck = s.recv(1024)
-    #    if not chunck:
-    #        break
-    #    fragments.append(chunck)
-
-    #i = "".join(fragments)
-    #print(i)
-    #i = s.recv(1024)
-    #print("Received:", repr(i))
-    #i = int(i)
-    #i += 1
-    #i = str(i)
-    #i = i.encode()
+    #print(pickle.loads(data)) #or pritn actual matrix
     sleep(2)

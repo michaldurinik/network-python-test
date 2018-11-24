@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import socket
+#server receive data and send them back to client and close itself
 
 HOST = "127.0.0.1"
 PORT = 65432
