@@ -1,6 +1,9 @@
 import sys
-class cube:
 
+class cube:
+"""
+just creating matrix 100x100, 0..99
+"""
     def __init__(self, cube=[[0]]*100):
         self.cube = cube
         for i in self.cube:
