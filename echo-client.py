@@ -7,7 +7,7 @@ import struct
 import sys
 
 HOST = "127.0.0.1"
-PORT = 65432
+PORT = 20001
 
 def send_msg(sock, msg):
     # Prefix each message with a 4-byte length (network byte order)
@@ -39,10 +39,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     #after it connects, send data to server, print size in bytes
     #and print what it received also, size in bytes
-    packet = pickle.dumps(c)
-    print(sys.getsizeof(packet))
-    send_msg(s, packet)
-    data = recv_msg(s)
-    print(sys.getsizeof(data))
-    #print(pickle.loads(data)) #or pritn actual matrix
-    sleep(2)
+    count = 0
+    while True:
+        packet = pickle.dumps(c)
+        print(sys.getsizeof(packet))
+        send_msg(s, packet)
+        data = recv_msg(s)
+        print(sys.getsizeof(data))
+        #print(pickle.loads(data)) #or pritn actual matrix
+        print("count:", count)
+        count +=1
+        sleep(1)
