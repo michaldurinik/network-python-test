@@ -1,9 +1,11 @@
 import sys
 
-class cube:
+
+class Cube:
     """
     just creating matrix 100x100, 0..99
     """
+
     def __init__(self, cube=[[0]]*100):
         self.cube = cube
         for i in self.cube:
@@ -19,8 +21,6 @@ class cube:
             string.strip()
             string += "\n"
         return string.strip()
-
-
 
     def get_cube(self):
         return self.cube
